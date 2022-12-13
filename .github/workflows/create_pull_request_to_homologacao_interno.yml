@@ -17,6 +17,6 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v2
       - name: Creating pull request to Homologacao-interno
-        run: gh pr create -B homologacao-interno -H '${{ github.event.pull_request.base.ref }}'  --title 'validando com text' --body 'Created by Github action'
+        run: gh pr create -B homologacao-interno -H '${{ github.event.pull_request.base.ref }}'  --title 'validando com texto diferente' --body 'Created by Github action'
         env:
             GITHUB_TOKEN: ${{ github.token }}    

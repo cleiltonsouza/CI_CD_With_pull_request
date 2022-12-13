@@ -10,7 +10,7 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v2
       - name: Realizando merge
-        run: gh pr merge
+        run: gh pr merge homologacao-interno
         env:
           GITHUB_TOKEN: ${{ github.token }}    
 
