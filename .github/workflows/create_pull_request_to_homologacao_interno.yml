@@ -1,4 +1,4 @@
-name: CI/CD
+name: Criar pull request para homologao-interno
 on:
   push:
     branches:
