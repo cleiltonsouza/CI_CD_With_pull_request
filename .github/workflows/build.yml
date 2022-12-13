@@ -9,7 +9,9 @@ on:
     #   branches:
     #     - "Agregador-*"
 jobs:
+
   create_pull_request:
+    runs-on: ubuntu-latest
     # if: github.event.pull_request.merged == true
     steps:
       - name: Creating pull request to Homologacao-interno
