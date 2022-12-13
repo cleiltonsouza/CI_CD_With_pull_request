@@ -14,6 +14,8 @@ jobs:
     runs-on: ubuntu-latest
     # if: github.event.pull_request.merged == true
     steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
       - name: Creating pull request to Homologacao-interno
         run: gh pr create -B Agregador-GT-A -H homologacao-interno --title 'Merge branch_to_merge into base_branch' --body 'Created by Github action'
         env:
