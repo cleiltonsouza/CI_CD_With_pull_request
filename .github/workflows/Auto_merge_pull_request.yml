@@ -1,6 +1,6 @@
 name: Auto merge em pull request na branch homologao-interno
 on:
-  pull_request:
+  push:
     branches:
       - "homologacao-interno"
 
@@ -15,5 +15,5 @@ jobs:
       - name: Realizando merge
         run: gh pr merge --merge 
         env:
-            GITHUB_TOKEN: ${{ github.token }}    
-            
+          GITHUB_TOKEN: ${{ github.token }}    
+
