@@ -1,14 +1,11 @@
 name: Auto merge em pull request na branch homologao-interno
 on:
   pull_request:
-    branches:
-      - "**"
 
 jobs:
 
   merge_pull_request:
     runs-on: ubuntu-latest
-    if: github.event.pull_request.opened == true
     steps:
       - name: Checkout repository
         uses: actions/checkout@v2
