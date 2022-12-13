@@ -17,4 +17,4 @@ jobs:
       - name: Creating pull request to Homologacao-interno
         run: gh pr create -B Agregador-GT-A -H homologacao-interno --title 'Merge branch_to_merge into base_branch' --body 'Created by Github action'
         env:
-            GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}      
+            GITHUB_TOKEN: ${{ github.token }}    
