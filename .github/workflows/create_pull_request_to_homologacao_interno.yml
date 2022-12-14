@@ -1,22 +1,17 @@
 name: Criar pull request para homologao-interno
-on:
-  push:
-    branches:
-      - "Agregador-*"
-    # pull_request_target:
-    #   types:
-    #     - closed
-    #   branches:
-    #     - "Agregador-*"
+on: 
+  pull_request:
+    branches: [Agregador-*]
+    types: [closed]
 jobs:
-
   create_pull_request:
+    if: github.event.pull_request.merged == true
     runs-on: ubuntu-latest
-    # if: github.event.pull_request.merged == true
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v2
+      - uses: actions/checkout@v3
+     
       - name: Creating pull request to Homologacao-interno
-        run: gh pr create -B homologacao-interno -H '${{ github.event.pull_request.base.ref }}'  --title 'Merge branch_to_merge into base_branch' --body 'Created by Github action'
-        env:
-            GITHUB_TOKEN: ${{ github.token }}    
+        env: 
+          HOMOLOG_BRANCH: ${{ secrets.HOMOLOG_BRANCH }}
+          GH_TOKEN: ${{ secrets.token }}
+        run: gh pr create -B $HOMOLOG_BRANCH -H ${{ github.event.pull_request.base.ref }}  --title '${{ github.event.pull_request.title }}' --body ''
