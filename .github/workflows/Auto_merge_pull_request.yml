@@ -1,12 +1,11 @@
 name: Auto merge em pull request na branch homologao-interno
 on:
   pull_request:
-    branches:
-      - ${{ secrets.HOMOLOG_BRANCH }}
     types:
       - opened
 jobs:
   merge_pull_request:
+    if: ${{ github.event.pull_request.base.ref }} == ${{ secrets.HOMOLOG_BRANCH }}
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
